@@ -12,31 +12,31 @@ export default function DeveloperCard() {
         </CardHeader>
         <CardBody>
           <div className="pb-4 pt-6">
-            <p className="text-large font-medium">weijunext/程普</p>
+            <p className="text-large font-medium">孔夫子家的湫</p>
             <p className="max-w-[90%] text-small text-default-400">
-              @weijunext
+              @watermelon
             </p>
             <div className="flex gap-2 pb-1 pt-2">
-              <Chip variant="flat">👨‍💻前端</Chip>
-              <Chip variant="flat">🛠️全栈</Chip>
+              <Chip variant="flat">👨‍💻后端</Chip>
+              {/* <Chip variant="flat">🛠️全栈</Chip> */}
               <Chip variant="flat">✨AI</Chip>
-              <Chip variant="flat">⛵️出海</Chip>
+              {/* <Chip variant="flat">⛵️出海</Chip> */}
             </div>
             <p className="py-2 text-small text-foreground">
-              Next.js开源手艺人｜掘金签约作者｜出海鼓励师
+              躺平|学习|分享|进步
             </p>
             <div className="w-full text-center mt-4 flex justify-evenly">
               <FollowButton
                 name="Twitter/X"
-                href="https://twitter.com/weijunext/"
+                href=""
               ></FollowButton>
               <FollowButton
                 name="Github"
-                href="https://github.com/weijunext/"
+                href=""
               ></FollowButton>
               <FollowButton
                 name="掘金"
-                href="https://juejin.cn/user/26044008768029"
+                href=""
               ></FollowButton>
             </div>
           </div>
