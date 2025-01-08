@@ -1,53 +1,45 @@
 ---
-title: 开源周刊第1期：用法介绍
-slug: 2024-02-05-001
-date: 2024-02-05
+title: Initial：部署和相关记录
+slug: 2025-01-08-001
+date: 2025-01-08
 ---
 
+网站参考了程普的[每周网站模板](https://github.com/weijunext/weekly-boilerplate)，然后采用Vercel去部署。
 
-一个页面只能有一个 h1，就是标题，所以页面内容要从 h2 开始
+## 开发记录
+网站的主要技术栈是nextjs框架
 
-开源测试
-
-## 标题 2
-
-Markdown允许你轻松地编写网页内容。它的语法简单明了。
-
-### 标题 3
-
-你也可以创建*斜体*和**粗体**文本，甚至是***斜体加粗体***。
-
-#### 标题 4
-
-列表是Markdown中常用的元素：
-
-- 项目一
-- 项目二
-  - 子项目一
-  - 子项目二
-- 项目三
-
-1. 第一项
-2. 第二项
-3. 第三项
-
-##### 标题 5
-
-链接和图片也很容易添加：
-
-[链接演示：J实验室](https://www.weijunext.com/make-a-friendss)
-
-![图片演示](/logo.svg)
-
-###### 标题 6
-
-代码块和引用也是Markdown的重要组成部分：
-
-```javascript
-console.log('Hello, MDX!');
+网站主要配置如下
+```csharp
+├─ app                # 应用入口
+│  ├─ weekly
+│  │  └─ [slug]
+│  │  │  └─ page.tsx  # 内容详情页
+│  ├─ layout.tsx
+│  └─ page.tsx        # 网站首页
+├─ components         # 组件
+│  ├─ ……
+├─ config             # 网站配置
+│  └─ site.ts
+├─ content            # mdx 文件统一放在这里
+│  ├─ ……
+├─ lib                # 公共工具类
+│  ├─ ……
+├─ public             # 公共静态资源
+│  ├─ ……
+├─ styles             # 样式
+│  ├─ ……
+│  ……
 ```
 
-开源测试2
+后续只需要在content中添加周记内容即可。
 
-> 这是一个引用文本。
+## 部署
+
+登录 Vercel，和你的GitHub进行绑定，然后导入项目。
+它会自动识别出这是一个nextjs项目，只需要默认无脑点击deploy即可。
+
+Vercel 默认会与 GitHub 仓库集成，实现自动部署：
+1. 每次你推送代码到 GitHub 仓库的 main 分支时，Vercel 会自动重新构建和部署你的项目。
+2. 你可以在 Vercel 仪表板中查看每次部署的状态和日志。
 

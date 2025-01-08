@@ -1,12 +1,9 @@
 🌍 *[英文](README.md) ∙ [简体中文](README-zh.md)*
 
-# [Weekly Boilerplate](https://weekly.weijunext.com/)
+# [周周记录]()
 
-Weekly Boilerplate 是一个精心设计的**周刊**网站模板，旨在为技术人员与非技术人员提供一个一键启动的周刊业务。
 
-演示地址：https://weekly.weijunext.com
-
-设计开发拆解文章：[Next.js+MDX手撸周刊/博客网站](https://juejin.cn/post/7355845238907486271)
+参考模板：[weekly-boilerplate](https://github.com/weijunext/weekly-boilerplate)
 
 ## 示例
 使用本模板的网站：
@@ -45,34 +42,3 @@ npm run dev
 
 [![使用 Vercel 部署](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/weijunext/weekly-boilerplate&project-name=&repository-name=weekly-boilerplate&demo-title=weekly-boilerplate&demo-description=Weekly%20Boilerplate.&demo-url=https://weekly.weijunext.com)
 
-
-## 功能开发列表
-- [x] 周刊/博客的 SSG 渲染
-- [x] 文章索引
-- [x] 评论功能
-- [x] 搜索功能(部分)
-- [ ] 搜索结果点击可跳转并滚动到选中位置
-- [ ] 搜索结果每一条内容只显示一行
-
-## 关于我
-
-**Full-Stack Engineer, Open-Source Next.js Artist & AI Enthusiast.**
-
-**全栈工程师，Next.js 开源手艺人，AI降临派。**
-
-[博客](https://weijunext.com)  
-[Github](https://github.com/weijunext)  
-[Twitter/X](https://twitter.com/weijunext)  
-[Medium](https://medium.com/@weijunext)  
-[掘金](https://juejin.cn/user/26044008768029)  
-[知乎](https://www.zhihu.com/people/mo-mo-mo-89-12-11)  
-[微信交流群](https://weijunext.com/make-a-friend)  
-
-如果这个项目对您有帮助，请给仓库点个star，能赞助一下就更好了👇
-
-<a href="https://www.buymeacoffee.com/weijunextz" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="请我喝咖啡" style="height: 41px !important;width: 174px !important;" ></a>
-
-
-<a href="https://afdian.net/a/weijunext" target="_blank"><img src="./public/afd.png" alt="在爱发电支持我" style="height: 50px !important"></a>
-
-<img src="./public/zs.jpeg" alt="赞赏作者" style="height: 200px; width: 200px">
