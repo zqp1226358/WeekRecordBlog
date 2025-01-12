@@ -38,8 +38,8 @@ npm run dev
 
 ## One-Click Deploy
 
-Deploy the example using [Vercel](https://vercel.com?utm_source=github&utm_medium=readme&utm_campaign=vercel-examples):
+<!-- Deploy the example using [Vercel](https://vercel.com?utm_source=github&utm_medium=readme&utm_campaign=vercel-examples):
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/weijunext/weekly-boilerplate&project-name=&repository-name=weekly-boilerplate&demo-title=weekly-boilerplate&demo-description=Weekly%20Boilerplate.&demo-url=https://weekly.weijunext.com)
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/weijunext/weekly-boilerplate&project-name=&repository-name=weekly-boilerplate&demo-title=weekly-boilerplate&demo-description=Weekly%20Boilerplate.&demo-url=https://weekly.weijunext.com) -->
 
 
