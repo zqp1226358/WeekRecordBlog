@@ -1,0 +1,128 @@
+---
+title: 周记1：2025临放假的一些学习记录
+slug: 2025-01-14-001
+date: 2025-01-14
+---
+
+看了一些java的八股，比如单例模式和线程底层运行原理。内容总结如下：
+
+## Java八股
+
+### 单例模式
+
+阅读文章：https://juejin.cn/post/7372577541113364492
+
+核心：私有化构造函数，公开化获取实例方法。
+
+因为将构造函数私有化了，意味着外部就无法通过`new`关键字，来创建对应的对象实例，这时只能通过提供的`getInstance()`方法获得对象实例。
+
+单例单例，这就说明全局只有一个对象实例，任意时刻、任意位置调用`getInstance()`方法，拿到的都是同一个对象，这就叫做单例模式。而`getInstance()`方法获得的对象什么时候被创建出来呢？根据创建时机的不同，就能分为不同的单例模式，如著名的饿汉式、懒汉式。
+
+饿汉式单例：**类加载的时候就立即初始化单例对象**
+
+```java
+public class HungerSingleton {
+    // 静态的实例对象，类加载阶段时就会被初始化
+    private static final HungerSingleton instance = new HungerSingleton();
+
+    /*
+    * 私有化构造函数
+    * */
+    private HungerSingleton() {}
+
+    /*
+    * 公开化的获取实例方法
+    * */
+    public static HungerSingleton getInstance() {
+        return instance;
+    }
+}
+
+```
+
+如上述代码所示，因为构造函数变为了`private`关键字修饰，代表外部不可能再通过`new`创建出实例，只能通过`getInstance()`方法获取，[《JVM类加载机制》](https://juejin.cn/post/7057538607828959263#heading-7)提到，被`static`关键字修饰的`instance`成员，就会在该阶段进行初始化。
+
+下面另外一种写法也是同样的道理。
+
+```java
+public class HungerSingleton {
+
+    private static final HungerSingleton instance;
+    
+    // 类加载阶段时会初始化静态代码块创建单例对象
+    static {
+         instance = new HungerSingleton();
+    }
+
+    private HungerSingleton() {}
+
+    public static HungerSingleton getInstance() {
+        return instance;
+    }
+}
+```
+
+懒汉式单例：**只有真正用的时候才会创建对象**
+
+```java
+public class LazySingleton {
+
+    // 静态的实例对象
+    private static LazySingleton instance;
+
+    /*
+    * 私有化构造函数
+    * */
+    private LazySingleton() {}
+
+    /*
+    * 公开化的获取实例方法
+    * */
+    public static LazySingleton getInstance() {
+        if (instance == null) {
+            instance = new LazySingleton();
+        }
+        return instance;
+    }
+}
+```
+
+缺点是多线程环境下，会存在线程安全问题。可能首先想到的是加synchronized，但是锁粒度较大。
+
+文章还提到了双重锁单例，待后续再消化。（其中包括volatile修饰的原因）
+
+
+## 线程底层原理
+
+首先知道为什么会有多线程的出现，以及**并发和并行**的区别。
+
+如何去创建线程，一般有以下方法：
+
+1. 重写（override）Thread的run()方法
+2. 实现java.lang.runnable接口，在创建Thread对象的时候传进去
+3. 使用FutureTask，在创建Thread对象的时候传进去（可以知道其他线程情况，有无抛异常）（后续有更好的）
+
+然后接触到`CompletableFuture`视频，传参没有executor默认是forkjoin线程池。
+
+CompletableFuture相较于FutureTask更加改良。
+
+最后介绍一些线程池的东西。
+
+
+
+[文章阅读：线程底层运行原理](https://cloud.tencent.com/developer/article/1818100)
+
+首先知道Java运行时数据区域，以JDK7的运行时数据区域为例，主要分为两大类：
+
+线程共享：堆、方法区（又名永久代/元空间）
+
+线程私有：虚拟机栈（一个个的栈帧，栈帧描述一个Java方法执行的内存模型）、本地方法栈、程序计数器
+
+> **如果线程正在执行的是一个 Java 方法，程序计数器中记录的就是正在执行的虚拟机字节码指令的地址；如果正在执行的是 Native 方法，这个计数器值则为空（Undefined）**
+
+通过文章debug截图了解线程底层运行过程。
+
+类似可以阅读的[文章](https://www.doc200.com/java/Java%E5%A4%9A%E7%BA%BF%E7%A8%8B/thread-run-theory.html#_1%E3%80%81%E7%BA%BF%E7%A8%8B%E8%BF%90%E8%A1%8C%E5%8E%9F%E7%90%86)(推荐)
+
+
+
